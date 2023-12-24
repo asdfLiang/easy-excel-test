@@ -36,6 +36,7 @@ public class StyleWriteHandler extends LongestMatchColumnWidthStyleStrategy {
     private void contentStyle(CellWriteHandlerContext context) {
         // 锁定有内容过的单元格(方法1)
         WriteCellStyle writeCellStyle = context.getFirstCellData().getOrCreateStyle();
+        /* !! 注意：这行就是解锁单元格的代码 */
         writeCellStyle.setLocked(StringUtils.isNotBlank(context.getCell().getStringCellValue()));
         // 如果锁定，置灰
         if (writeCellStyle.getLocked()) {
@@ -55,6 +56,7 @@ public class StyleWriteHandler extends LongestMatchColumnWidthStyleStrategy {
         CellStyle cellStyle = cell.getSheet().getWorkbook().createCellStyle();
         // 复制原来单元格的样式
         cellStyle.cloneStyleFrom(cell.getCellStyle());
+        /* !! 注意：这行就是解锁单元格的代码 */
         cellStyle.setLocked(StringUtils.isNotBlank(cell.getStringCellValue()));
         cell.setCellStyle(cellStyle);
         // 如果锁定，置灰
