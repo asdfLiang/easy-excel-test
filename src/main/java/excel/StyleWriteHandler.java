@@ -52,7 +52,7 @@ public class StyleWriteHandler extends LongestMatchColumnWidthStyleStrategy {
      * @param cell
      */
     private void contentStyle2(Cell cell) {
-        // 创建新的单元格样式(方法2)
+        // 创建新的单元格样式，并解锁没有内容的单元格(方法2)
         CellStyle cellStyle = cell.getSheet().getWorkbook().createCellStyle();
         // 复制原来单元格的样式
         cellStyle.cloneStyleFrom(cell.getCellStyle());
