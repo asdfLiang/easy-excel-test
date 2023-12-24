@@ -1,6 +1,8 @@
 import com.alibaba.excel.EasyExcel;
+
 import excel.CustomSheetWriteHandler;
 import excel.StyleWriteHandler;
+
 import org.junit.Test;
 
 import java.io.File;
@@ -17,7 +19,7 @@ public class EasyExcelTest {
 
     @Test
     public void testWriteExcel() {
-        String pathname = "E:\\liangzj\\Desktop\\test.xlsx";
+        String pathname = "D:\\home\\Desktop\\test.xlsx";
         EasyExcel.write(new File(pathname))
                 .head(header())
                 .registerWriteHandler(new CustomSheetWriteHandler())
